@@ -1,0 +1,20 @@
+{
+    "name": "chainup-waas/sdk",
+    "descriptioin": "chainup waas sdk",
+    "pretty_version" : "1.0.0",
+    "version" : "1.0.0",
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "chainup\\waas\\": "src"
+        }
+    },
+    "license": "MIT",
+    "authors": [{
+        "name": "admin",
+        "email": "admin@chainup.com"
+    }]
+}
