@@ -20,5 +20,5 @@ useage:
     }]
 }`
 
-2、exec currnt command
+2、exec current command
 `composer require chainup-waas/sdk`
