@@ -6,7 +6,7 @@ useage:
 
 1、add composer.json in user project directory with code
 
-`{
+```{
     "name": "waas/demo",
     "descriptioin": "chainup waas client demo",
     "require": {
@@ -18,7 +18,7 @@ useage:
         "name": "admin",
         "email": "admin@chainup.com"
     }]
-}`
+}```
 
 2、exec current command
 `composer require chainup-waas/sdk`
