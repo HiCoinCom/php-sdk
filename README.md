@@ -18,7 +18,12 @@ useage:
         "name": "admin",
         "email": "admin@chainup.com"
     }]
-}```
+}
+```
 
 2、exec current command
-`composer require chainup-waas/sdk`
+```
+composer require chainup-waas/sdk
+```
+3、demo
+https://github.com/HiCoinCom/php-demo
