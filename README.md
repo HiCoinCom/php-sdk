@@ -2,7 +2,7 @@ waas api sdk
 
 doc http://docs.hicoin.vip/zh/latest/API-WaaS-V2/index.html
 
-useage:
+usage:
 
 1、add composer.json in user project directory with code
 
