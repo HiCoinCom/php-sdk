@@ -11,9 +11,9 @@ class Config
     private $domain = "https://openapi.hicoin.vip/api/v2";
     private $charset = "utf-8";
     private $version = "v2";
-    //用户自己创建的私钥
+    //User-created private key
     private $userPrivateKey = "" ;
-    //chainup waas 提供的公钥
+    //chainup waas provided public key
     private $waasPublicKey = "" ;
 
     const URL_REGISTER_MOBILE_USER            = "/user/createUser";

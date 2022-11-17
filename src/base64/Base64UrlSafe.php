@@ -6,10 +6,10 @@ namespace chainup\waas\base64;
 class Base64UrlSafe
 {
     /**
-     * URL base64解码
+     * URL base64 decoding
      * '-' -> '+'
      * '_' -> '/'
-     * 字符串长度%4的余数，补'='
+     * The remainder of the string length %4, supplemented with '='
      * @param base64 $string
      */
     public static function Decode($string) {
@@ -22,7 +22,7 @@ class Base64UrlSafe
     }
 
     /**
-     * URL base64编码
+     * URL base64 encoding
      * '+' -> '-'
      * '/' -> '_'
      * '=' -> ''

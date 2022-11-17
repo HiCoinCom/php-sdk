@@ -5,24 +5,24 @@ interface WaasApi
 {
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_createUser.html
-     * 注册手机号用户
-     * @param $country 国编码
-     * @param $mobile 手机号
-     * @return 注册后的用户UID
+     * register mobile number
+     * @param $country country code
+     * @param $mobile Phone number
+     * @return User UID after registration
      */
     public function CreateMobileUser($country, $mobile) ;
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_registerEmail.html
-     * 注册邮箱用户
+     * Register account by  Email
      * @param $email
-     * @return int 注册后的用户UID
+     * @return int User UID after registration
      */
     public function CreateEmailUser($email);
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_info.html
-     *  获取注册的用户信息
+     *  Get registered user information
      * @param $country
      * @param $mobile
      * @return UserInfo
@@ -31,7 +31,7 @@ interface WaasApi
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_info.html
-     * 获取注册的用户信息
+     * Get registered user information
      * @param $email
      * @return UserInfo
      */
@@ -39,14 +39,14 @@ interface WaasApi
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_getCoinList.html
-     *  获取支持的币种列表
+     *  obtain list of supported coins
      * @return Coin
      */
     public function GetCoinList();
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/account_getByUidAndSymbol.html
-     *  获取用户币种余额
+     *  obtain user account balance by coins
      * @param $uid
      * @param $symbol
      * @return Balance
@@ -55,7 +55,7 @@ interface WaasApi
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/account_getCompanyBySymbol.html
-     *  获取商户归集后的余额
+     *  obtain merchants account balance after assets consolidation
      * @param $symbol
      * @return collect balnce
      */
@@ -63,7 +63,7 @@ interface WaasApi
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/account_getDepositAddress.html
-     *  获取币种充值地址
+     *  obtain coin deposit address
      * @param $uid
      * @param $symbol
      * @return deposit address
@@ -72,27 +72,27 @@ interface WaasApi
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_withdraw.html
-     *  发起提现
-     * @param $requestId 商户订单唯一标识，用来区分重复提现
-     * @param $fromWaasUid  CreateMobileUser 接口返回的uid
-     * @param $withdrawAddress 提现地址
-     * @param $withdrawAmount 提现金额
-     * @param $withdrawSymbol 提现币种
-     * @return waas 平台提现id
+     *  Initiate a withdrawal
+     * @param $requestId Merchant order unique identifier, used to distinguish repeated withdrawals
+     * @param $fromWaasUid  CreateMobileUser The uid returned by the interface
+     * @param $withdrawAddress Withdrawal address
+     * @param $withdrawAmount Withdrawal Amount
+     * @param $withdrawSymbol Withdrawal coin
+     * @return waas Platform withdrawal id
      */
     public function Withdraw($requestId, $fromWaasUid, $withdrawAddress, $withdrawAmount, $withdrawSymbol);
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_syncWithdrawList.html
-     * 同步提现记录
-     * @param int $lastWaasId  waas平台提现id, 返回比last waas id 更大的100笔
+     * Sync withdrawal record
+     * @param int $lastWaasId  waas Platform withdrawal id,Returns 100 more than last waas id
      * @return withdraw list
      */
     public function SyncWithdrawList($lastWaasId = 0);
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_withdrawList.html
-     *  批量获取提现记录
+     *  Batch query withdrawal records
      * @param array $requestIdList
      * @return mixed
      */
@@ -100,7 +100,7 @@ interface WaasApi
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_syncDepositList.html
-     * 同步充值记录
+     * Sync deposit record
      * @param int $lastWaasId
      * @return mixed
      */
@@ -108,7 +108,7 @@ interface WaasApi
 
     /**
      * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_depositList.html
-     *  批量同步充值记录
+     *  Batch query deposit records
      * @param array $requestIdList
      * @return mixed
      */
