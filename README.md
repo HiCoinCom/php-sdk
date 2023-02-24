@@ -6,7 +6,8 @@ usage:
 
 1、add composer.json in user project directory with code
 
-```{
+```
+{
     "name": "waas/demo",
     "descriptioin": "chainup waas client demo",
     "require": {
