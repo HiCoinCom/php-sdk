@@ -1,8 +1,8 @@
 {
     "name": "chainup-waas/sdk",
     "descriptioin": "chainup waas sdk",
-    "pretty_version" : "1.0.0",
-    "version" : "1.0.0",
+    "pretty_version" : "1.0.1",
+    "version" : "1.0.1",
     "require": {
         "php": ">=5.4.0",
         "guzzlehttp/guzzle": "~6.0"
