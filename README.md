@@ -1,6 +1,6 @@
 waas api sdk
 
-doc http://docs.hicoin.vip/zh/latest/API-WaaS-V2/index.html
+doc https://custodydocs.chainup.com/en/latest/API-WaaS-V2/index.html
 
 usage:
 
