@@ -18,8 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Chainup\\Waas\\": "src/",
-            "chainup\\waas\\": "src/"
+            "Chainup\\Waas\\": "src/"
         }
     },
     "autoload-dev": {
