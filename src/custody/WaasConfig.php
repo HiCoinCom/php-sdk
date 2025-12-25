@@ -67,7 +67,7 @@ class WaasConfig
      */
     public function __construct($options = array())
     {
-        $this->host = isset($options['host']) ? $options['host'] : '';
+        $this->host = isset($options['host']) ? $options['host'] : 'https://openapi.chainup.com';
         $this->appId = isset($options['appId']) ? $options['appId'] : '';
         $this->privateKey = isset($options['privateKey']) ? $options['privateKey'] : '';
         $this->publicKey = isset($options['publicKey']) ? $options['publicKey'] : '';
@@ -88,7 +88,10 @@ class WaasConfig
         } else {
             // Create default RSA crypto provider if keys are provided
             if (!empty($this->privateKey) && !empty($this->publicKey)) {
-                $this->cryptoProvider = new RsaCryptoProvider($this->privateKey, $this->publicKey);
+                $this->cryptoProvider = new RsaCryptoProvider(array(
+                    'privateKey' => $this->privateKey,
+                    'publicKey' => $this->publicKey
+                ));
             }
         }
     }

@@ -4,7 +4,7 @@ namespace Chainup\Waas\Utils;
 
 /**
  * Crypto Provider Interface
- * Defines encryption and decryption methods
+ * Defines encryption, decryption, and signing methods
  * Allows users to implement custom encryption (different algorithms, HSM, etc.)
  * 
  * @package Chainup\Waas\Utils
@@ -30,4 +30,16 @@ interface CryptoProviderInterface
      * @throws \Exception If decryption fails
      */
     public function decryptWithPublicKey($encryptedData);
+
+    /**
+     * Sign data with private key
+     * Used for signing MPC transactions (withdraw, web3, etc.)
+     * Pure RSA-SHA256 signature function
+     * 
+     * @param string $data Data to sign (can be plain text or hash)
+     * @param bool $base64Encode Whether to base64 encode the signature (default: true)
+     * @return string Signature (base64 or hex encoded)
+     * @throws \Exception If signing fails
+     */
+    public function sign($data, $base64Encode = true);
 }
