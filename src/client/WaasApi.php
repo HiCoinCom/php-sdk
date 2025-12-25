@@ -4,7 +4,7 @@ namespace chainup\waas\client;
 interface WaasApi
 {
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_createUser.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/get-address/create-user
      * register mobile number
      * @param $country country code
      * @param $mobile Phone number
@@ -13,7 +13,7 @@ interface WaasApi
     public function CreateMobileUser($country, $mobile) ;
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_registerEmail.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/get-address/register-email
      * Register account by  Email
      * @param $email
      * @return int User UID after registration
@@ -21,7 +21,7 @@ interface WaasApi
     public function CreateEmailUser($email);
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_info.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/account-assets/user-info
      *  Get registered user information
      * @param $country
      * @param $mobile
@@ -30,7 +30,7 @@ interface WaasApi
     public function GetUserInfoByMobile($country, $mobile);
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_info.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/account-assets/user-info
      * Get registered user information
      * @param $email
      * @return UserInfo
@@ -38,14 +38,14 @@ interface WaasApi
     public function GetUserInfoByEmail($email);
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/user_getCoinList.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/account-assets/coin-list
      *  obtain list of supported coins
      * @return Coin
      */
     public function GetCoinList();
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/account_getByUidAndSymbol.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/account-assets/get-balance
      *  obtain user account balance by coins
      * @param $uid
      * @param $symbol
@@ -54,7 +54,7 @@ interface WaasApi
     public function GetBalanceByUidAndSymbol($uid, $symbol);
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/account_getCompanyBySymbol.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/account-assets/get-account
      *  obtain merchants account balance after assets consolidation
      * @param $symbol
      * @return collect balnce
@@ -62,7 +62,7 @@ interface WaasApi
     public function GetCollectBalanceBySymbol($symbol);
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/account_getDepositAddress.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/get-address/get-deposit-address
      *  obtain coin deposit address
      * @param $uid
      * @param $symbol
@@ -71,7 +71,7 @@ interface WaasApi
     public function GetDepositAddress($uid, $symbol);
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_withdraw.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/user-withdraw/withdraw
      *  Initiate a withdrawal
      * @param $requestId Merchant order unique identifier, used to distinguish repeated withdrawals
      * @param $fromWaasUid  CreateMobileUser The uid returned by the interface
@@ -83,7 +83,7 @@ interface WaasApi
     public function Withdraw($requestId, $fromWaasUid, $withdrawAddress, $withdrawAmount, $withdrawSymbol);
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_syncWithdrawList.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/user-withdraw/withdraw-sync-list
      * Sync withdrawal record
      * @param int $lastWaasId  waas Platform withdrawal id,Returns 100 more than last waas id
      * @return withdraw list
@@ -91,7 +91,7 @@ interface WaasApi
     public function SyncWithdrawList($lastWaasId = 0);
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_withdrawList.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/user-withdraw/withdraw-list
      *  Batch query withdrawal records
      * @param array $requestIdList
      * @return mixed
@@ -99,7 +99,7 @@ interface WaasApi
     public function WithdrawBatchList($requestIdList = array());
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_syncDepositList.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/user-deposit/deposit-sync-list
      * Sync deposit record
      * @param int $lastWaasId
      * @return mixed
@@ -107,7 +107,7 @@ interface WaasApi
     public function SyncDepositList($lastWaasId = 0);
 
     /**
-     * http://docs.hicoin.vip/zh/latest/API-WaaS-V2/api/billing_depositList.html
+     * https://custodydocs-en.chainup.com/api-references/custody-apis/apis/user-deposit/deposit-list
      *  Batch query deposit records
      * @param array $requestIdList
      * @return mixed
