@@ -9,17 +9,20 @@ Official PHP SDK for ChainUp Custody WaaS (Wallet-as-a-Service) and MPC (Multi-P
 ## Features
 
 - ✅ **WaaS (Custody) API** - Full support for custody wallet operations
+- ✅ **MPC API** - Multi-Party Computation wallet support
 - ✅ **Builder Pattern** - Flexible and intuitive client configuration
 - ✅ **Type-Safe** - Well-defined API interfaces and response structures
 - ✅ **RSA Encryption** - Secure request/response encryption
 - ✅ **Error Handling** - Comprehensive error handling and validation
-- ✅ **MPC Support** - Reserved structure for MPC wallet functionality
+- ✅ **Multi-Chain Support** - Support for 50+ blockchain networks
 - ✅ **PSR-4 Autoloading** - Modern PHP package structure
 - ✅ **PSR Compliant** - Follows PHP-FIG standards (PSR-1, PSR-4, PSR-12)
 
 ## Documentation
 
-- [API Documentation](https://custodydocs.chainup.com/en/latest/API-WaaS-V2/index.html)
+- [WaaS API Documentation](https://custodydocs.chainup.com/en/latest/API-WaaS-V2/index.html)
+- [MPC API Documentation (English)](docs/MPC_API_EN.md)
+- [MPC API 中文文档](docs/MPC_API_CN.md)
 - [中文文档](https://custodydocs.chainup.com/zh_CN/latest/API-WaaS-V2/index.html)
 
 ## Installation
@@ -37,6 +40,8 @@ composer require chainup-waas/sdk
 ```
 
 ## Quick Start
+
+### WaaS (Custody) API
 
 ### 1. Initialize WaaS Client
 
@@ -122,6 +127,82 @@ $response = $asyncNotifyApi->verifyResponse(array(
 ));
 ```
 
+### MPC API
+
+### 1. Initialize MPC Client
+
+```php
+<?php
+require_once 'vendor/autoload.php';
+
+use Chainup\Waas\Mpc\MpcClient;
+
+// Create MPC client using Builder pattern
+$mpcClient = MpcClient::newBuilder()
+    ->setDomain('https://openapi.chainup.com')
+    ->setAppId('your-app-id')
+    ->setRsaPrivateKey('your-rsa-private-key')
+    ->setWaasPublicKey('chainup-public-key')
+    ->setSignPrivateKey('your-sign-private-key')  // For transaction signing
+    ->setDebug(false)
+    ->build();
+```
+
+### 2. Wallet Operations
+
+```php
+// Get WalletApi instance
+$walletApi = $mpcClient->getWalletApi();
+
+// Create wallet
+$result = $walletApi->createWallet(array(
+    'sub_wallet_name' => 'My Wallet',
+    'app_show_status' => 1
+));
+
+if ($result->isSuccess()) {
+    echo "Wallet ID: " . $result->getData()['sub_wallet_id'];
+} else {
+    echo "Error: " . $result->getMsg();
+}
+```
+
+### 3. Withdrawal Operations
+
+```php
+$withdrawApi = $mpcClient->getWithdrawApi();
+
+// Withdraw cryptocurrency
+$result = $withdrawApi->withdraw(array(
+    'request_id' => 'withdraw_' . time(),
+    'sub_wallet_id' => 123456,
+    'symbol' => 'USDT',
+    'amount' => '10.5',
+    'address_to' => '0x1234...'
+));
+
+if ($result->isSuccess()) {
+    echo "Transaction ID: " . $result->getData()['txid'];
+}
+```
+
+### 4. Web3 Operations
+
+```php
+$web3Api = $mpcClient->getWeb3Api();
+
+// Execute smart contract transaction
+$result = $web3Api->createWeb3Trans(array(
+    'request_id' => 'web3_' . time(),
+    'sub_wallet_id' => 123456,
+    'main_chain_symbol' => 'ETH',
+    'interactive_contract' => '0xabc...',
+    'trans_type' => 1,
+    'amount' => '0',
+    'input_data' => '0x...'
+));
+```
+
 ## Project Structure
 
 ```
@@ -137,19 +218,35 @@ php-sdk/
 │   │   │   └── AsyncNotifyApi.php
 │   │   ├── WaasClient.php    # Main WaaS client
 │   │   └── WaasConfig.php    # Configuration
-│   ├── mpc/                  # MPC module (reserved)
-│   │   ├── MpcClient.php
-│   │   └── MpcConfig.php
+│   ├── mpc/                  # MPC module
+│   │   ├── api/              # MPC API implementations
+│   │   │   ├── MpcBaseApi.php
+│   │   │   ├── WalletApi.php
+│   │   │   ├── DepositApi.php
+│   │   │   ├── WithdrawApi.php
+│   │   │   ├── Web3Api.php
+│   │   │   ├── AutoSweepApi.php
+│   │   │   ├── TronResourceApi.php
+│   │   │   ├── NotifyApi.php
+│   │   │   └── WorkSpaceApi.php
+│   │   ├── MpcClient.php     # Main MPC client
+│   │   └── MpcConfig.php     # Configuration
 │   ├── utils/                # Utility classes
 │   │   ├── Base64UrlSafe.php
 │   │   ├── HttpClient.php
 │   │   ├── Result.php
+│   │   ├── RsaCryptoProvider.php
+│   │   ├── CryptoProviderInterface.php
 │   │   └── RsaUtil.php
 │   ├── client/               # Legacy (v1.x - deprecated)
 │   ├── base64/               # Legacy (v1.x - deprecated)
 │   └── crypto/               # Legacy (v1.x - deprecated)
 ├── examples/                 # Usage examples
-│   └── waas-example.php
+│   ├── waas-example.php
+│   └── mpc-example.php
+├── docs/                     # Documentation
+│   ├── MPC_API_EN.md
+│   └── MPC_API_CN.md
 ├── composer.json
 ├── index.php
 ├── CHANGELOG.md
@@ -194,7 +291,13 @@ $result = $client->getUserApi()->registerEmailUser($email);
 
 ## Examples
 
-See [examples/waas-example.php](examples/waas-example.php) for complete working examples.
+- WaaS API: See [examples/waas-example.php](examples/waas-example.php)
+- MPC API: See [examples/mpc-example.php](examples/mpc-example.php)
+
+For detailed MPC API documentation:
+
+- [English Documentation](docs/MPC_API_EN.md)
+- [中文文档](docs/MPC_API_CN.md)
 
 ## Standards Compliance
 
