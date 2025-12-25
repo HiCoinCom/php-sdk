@@ -309,7 +309,7 @@ This SDK follows PHP-FIG standards:
 
 ## Support
 
-- Documentation: https://custodydocs.chainup.com
+- Documentation: https://custodydocs-en.chainup.com/
 - Email: custody@chainup.com
 
 ## License
