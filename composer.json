@@ -1,20 +1,34 @@
 {
     "name": "chainup-waas/sdk",
-    "descriptioin": "chainup waas sdk",
-    "pretty_version" : "1.0.1",
-    "version" : "1.0.1",
+    "description": "ChainUp Custody PHP SDK - WaaS and MPC Wallet API Client",
+    "type": "library",
+    "keywords": ["chainup", "custody", "waas", "mpc", "wallet", "blockchain", "cryptocurrency"],
+    "homepage": "https://github.com/ChainUp-Custody/php-sdk",
+    "license": "MIT",
+    "version": "2.0.0",
+    "authors": [
+        {
+            "name": "ChainUp Custody",
+            "email": "custody@chainup.com"
+        }
+    ],
     "require": {
-        "php": ">=5.4.0",
-        "guzzlehttp/guzzle": "6.5.8"
+        "php": ">=5.6.0",
+        "guzzlehttp/guzzle": "^6.5|^7.0"
     },
     "autoload": {
         "psr-4": {
-            "chainup\\waas\\": "src"
+            "Chainup\\Waas\\": "src/"
         }
     },
-    "license": "MIT",
-    "authors": [{
-        "name": "admin",
-        "email": "admin@chainup.com"
-    }]
+    "autoload-dev": {
+        "psr-4": {
+            "Chainup\\Waas\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
