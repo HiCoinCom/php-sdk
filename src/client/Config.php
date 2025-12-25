@@ -8,7 +8,7 @@ class Config
 {
 
     private $appid = "";
-    private $domain = "https://openapi.hicoin.vip/api/v2";
+    private $domain = "https://openapi.chainup.com/api/v2";
     private $charset = "utf-8";
     private $version = "v2";
     //User-created private key
