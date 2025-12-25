@@ -20,10 +20,10 @@ Official PHP SDK for ChainUp Custody WaaS (Wallet-as-a-Service) and MPC (Multi-P
 
 ## Documentation
 
-- [WaaS API Documentation](https://custodydocs.chainup.com/en/latest/API-WaaS-V2/index.html)
+- [WaaS API Documentation](https://custodydocs-en.chainup.com/api-references/intro/custody-apis)
 - [MPC API Documentation (English)](docs/MPC_API_EN.md)
 - [MPC API 中文文档](docs/MPC_API_CN.md)
-- [中文文档](https://custodydocs.chainup.com/zh_CN/latest/API-WaaS-V2/index.html)
+- [中文文档](https://custodydocs-zh.chainup.com/api-references/intro/custody-apis)
 
 ## Installation
 

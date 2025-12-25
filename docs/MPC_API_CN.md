@@ -780,7 +780,7 @@ if ($result->isSuccess()) {
 ## 支持
 
 - **文档**: https://custodydocs.chainup.com
-- **API 参考**: https://custodydocs.chainup.com/zh_CN/latest/API-MPC/index.html
+- **API 参考**: https://custodydocs-zh.chainup.com/api-references/intro/custody-apis
 - **邮箱**: custody@chainup.com
 - **GitHub**: https://github.com/ChainUp-Custody/php-sdk
 

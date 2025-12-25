@@ -780,7 +780,7 @@ if ($result->isSuccess()) {
 ## Support
 
 - **Documentation**: https://custodydocs.chainup.com
-- **API Reference**: https://custodydocs.chainup.com/en/latest/API-MPC/index.html
+- **API Reference**: https://custodydocs-en.chainup.com/api-references/intro/custody-apis
 - **Email**: custody@chainup.com
 - **GitHub**: https://github.com/ChainUp-Custody/php-sdk
 
