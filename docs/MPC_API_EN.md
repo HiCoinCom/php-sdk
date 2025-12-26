@@ -177,8 +177,7 @@ Query addresses for a wallet.
 $result = $walletApi->queryWalletAddress(array(
     'sub_wallet_id' => 123456,
     'symbol' => 'USDT',
-    'max_id' => 0,        // Optional: pagination
-    'page_size' => 100    // Optional: items per page
+    'max_id' => 0        // Optional: pagination
 ));
 ```
 
@@ -244,8 +243,7 @@ Sync recent deposit records.
 
 ```php
 $result = $depositApi->syncDepositRecords(
-    1,          // max_id: start from this ID (0 for all)
-    100         // page_size: records per request (optional)
+    1          // max_id: start from this ID (0 for all)
 );
 ```
 
@@ -296,8 +294,7 @@ Sync recent withdrawal records.
 
 ```php
 $result = $withdrawApi->syncWithdrawRecords(
-    1,          // max_id: start from this ID
-    100         // page_size: optional
+    1          // max_id: start from this ID
 );
 ```
 
@@ -364,8 +361,7 @@ Sync recent Web3 transaction records.
 
 ```php
 $result = $web3Api->syncWeb3Records(
-    0,          // max_id
-    100         // page_size: optional
+    0          // max_id
 );
 ```
 
@@ -407,8 +403,7 @@ Get auto-sweep execution records.
 
 ```php
 $result = $autoSweepApi->syncAutoCollectRecords(
-    0,          // max_id
-    100         // page_size: optional
+    0          // max_id
 );
 ```
 
@@ -460,8 +455,7 @@ Sync TRON resource purchase history.
 
 ```php
 $result = $tronApi->syncBuyResourceRecords(
-    0,          // max_id
-    100         // page_size: optional
+    0          // max_id
 );
 ```
 
@@ -692,7 +686,7 @@ $maxId = 0;
 $allRecords = array();
 
 do {
-    $result = $depositApi->syncDepositRecords($maxId, 100);
+    $result = $depositApi->syncDepositRecords($maxId);
 
     if (!$result->isSuccess()) {
         break;

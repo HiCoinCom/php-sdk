@@ -177,8 +177,7 @@ $result = $walletApi->createWalletAddress(array(
 $result = $walletApi->queryWalletAddress(array(
     'sub_wallet_id' => 123456,
     'symbol' => 'USDT',
-    'max_id' => 0,        // 可选：分页参数
-    'page_size' => 100    // 可选：每页数量
+    'max_id' => 0        // 可选：分页参数
 ));
 ```
 
@@ -244,8 +243,7 @@ $result = $depositApi->getDepositRecords(array(
 
 ```php
 $result = $depositApi->syncDepositRecords(
-    1,          // max_id：从此 ID 开始（0 表示全部）
-    100         // page_size：每次请求记录数（可选）
+    1          // max_id：从此 ID 开始（0 表示全部）
 );
 ```
 
@@ -296,8 +294,7 @@ $result = $withdrawApi->getWithdrawRecords(array(
 
 ```php
 $result = $withdrawApi->syncWithdrawRecords(
-    1,          // max_id：从此 ID 开始
-    100         // page_size：可选
+    1          // max_id：从此 ID 开始
 );
 ```
 
@@ -364,8 +361,7 @@ $result = $web3Api->getWeb3Records(array(
 
 ```php
 $result = $web3Api->syncWeb3Records(
-    0,          // max_id
-    100         // page_size：可选
+    0          // max_id
 );
 ```
 
@@ -407,8 +403,7 @@ $result = $autoSweepApi->setAutoCollectSymbol(array(
 
 ```php
 $result = $autoSweepApi->syncAutoCollectRecords(
-    0,          // max_id
-    100         // page_size：可选
+    0          // max_id
 );
 ```
 
@@ -460,8 +455,7 @@ $result = $tronApi->getBuyResourceRecords(array(
 
 ```php
 $result = $tronApi->syncBuyResourceRecords(
-    0,          // max_id
-    100         // page_size：可选
+    0          // max_id
 );
 ```
 
@@ -692,7 +686,7 @@ $maxId = 0;
 $allRecords = array();
 
 do {
-    $result = $depositApi->syncDepositRecords($maxId, 100);
+    $result = $depositApi->syncDepositRecords($maxId);
 
     if (!$result->isSuccess()) {
         break;
