@@ -17,11 +17,9 @@ class BillingApi extends BaseApi
      * 
      * @param string $requestId Unique request ID (merchant generated)
      * @param int $fromUid Source user ID
-     * @param string $toAddress Destination address
+     * @param string $toAddress Destination address or (address_memo for some coins)
      * @param string $amount Withdrawal amount
      * @param string $symbol Cryptocurrency symbol (e.g., 'BTC', 'ETH')
-     * @param string $memo Address memo/tag (for coins like XRP, EOS) - optional
-     * @param string $remark Additional remark - optional
      * @return Result Withdrawal result
      * @throws \Exception On request failure
      */
@@ -35,9 +33,6 @@ class BillingApi extends BaseApi
             'symbol' => $symbol
         );
         
-        if (!empty($memo)) {
-            $params['memo'] = $memo;
-        }
         if (!empty($remark)) {
             $params['remark'] = $remark;
         }

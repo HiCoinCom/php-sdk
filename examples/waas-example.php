@@ -291,6 +291,7 @@ try {
     // Prepare withdrawal verification response
     $withdrawResponse = array(
         'request_id' => 'withdraw_12345',
+        'check_sum'=>'12345',
         'status' => 1  // 1 = approve, 2 = reject
     );
     
