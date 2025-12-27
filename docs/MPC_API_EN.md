@@ -52,6 +52,40 @@ The MPC (Multi-Party Computation) module provides a secure and decentralized app
 composer require chainup-waas/sdk
 ```
 
+### Install from GitHub Repository
+
+You can also install directly from GitHub by adding the following to your `composer.json`:
+
+```json
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/HiCoinCom/php-sdk.git"
+    }
+  ],
+  "require": {
+    "chainup-waas/sdk": "2.0.0"
+  }
+}
+```
+
+Then run:
+
+```bash
+composer install
+```
+
+### Manual Installation
+
+You can manually clone the repository:
+
+```bash
+git clone https://github.com/HiCoinCom/php-sdk.git
+cd php-sdk
+composer install
+```
+
 ## Quick Start
 
 ### Initialize MPC Client

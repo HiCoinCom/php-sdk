@@ -18,7 +18,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Chainup\\Waas\\": "src/"
+            "Chainup\\Waas\\Custody\\": "src/custody/",
+            "Chainup\\Waas\\Mpc\\": "src/mpc/",
+            "Chainup\\Waas\\Utils\\": "src/utils/"
         }
     },
     "autoload-dev": {

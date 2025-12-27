@@ -52,6 +52,40 @@ MPC（多方计算）模块提供了一种安全且去中心化的加密货币�
 composer require chainup-waas/sdk
 ```
 
+### 从 GitHub 仓库安装
+
+您也可以通过 GitHub 直接安装，在 `composer.json` 中添加以下配置：
+
+```json
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/HiCoinCom/php-sdk.git"
+    }
+  ],
+  "require": {
+    "chainup-waas/sdk": "2.0.0"
+  }
+}
+```
+
+然后运行：
+
+```bash
+composer install
+```
+
+### 手动安装
+
+您也可以手动克隆仓库：
+
+```bash
+git clone https://github.com/HiCoinCom/php-sdk.git
+cd php-sdk
+composer install
+```
+
 ## 快速开始
 
 ### 初始化 MPC 客户端
