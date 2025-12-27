@@ -23,7 +23,7 @@ class BillingApi extends BaseApi
      * @return Result Withdrawal result
      * @throws \Exception On request failure
      */
-    public function withdraw($requestId, $fromUid, $toAddress, $amount, $symbol, $memo = '', $remark = '')
+    public function withdraw($requestId, $fromUid, $toAddress, $amount, $symbol, $remark = '')
     {
         $params = array(
             'request_id' => $requestId,
