@@ -373,8 +373,9 @@ Speed up a pending transaction by increasing gas price.
 
 ```php
 $result = $web3Api->accelerationWeb3Trans(array(
-    'request_id' => 'web3_001',    // Required: original request ID
-    'gas_price' => '50'            // Required: new gas price (Gwei)
+    'trans_id' => 12345,           // Required: Web3 transaction ID
+    'gas_price' => '50',           // Required: new gas price (Gwei)
+    'gas_limit' => '21000'         // Required: gas limit
 ));
 ```
 

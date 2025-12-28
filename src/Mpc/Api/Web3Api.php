@@ -117,26 +117,29 @@ class Web3Api extends MpcBaseApi
      * Accelerates a Web3 transaction
      * 
      * @param array $params Acceleration parameters
-     *   - request_id (string): Original request ID [required]
-     *   - gas_price (string): New gas price (higher than original) [required]
-     *   - gas_limit (string): New gas limit [optional]
+     *   - trans_id (int): Web3 transaction ID [required]
+     *   - gas_price (string): New gas price in Gwei (higher than original) [required]
+     *   - gas_limit (string): New gas limit [required]
      * @return array Acceleration result
      * @throws \Exception On request failure
+     * @example
+     * $result = $web3Api->accelerationWeb3Trans(array(
+     *     'trans_id' => 12345,
+     *     'gas_price' => '50',
+     *     'gas_limit' => '21000'
+     * ));
      */
     public function accelerationWeb3Trans($params)
     {
-        if (empty($params["request_id"]) || empty($params["gas_price"])) {
-            throw new \Exception("Required parameters: request_id, gas_price");
+        if (empty($params["trans_id"]) || empty($params["gas_price"]) || empty($params["gas_limit"])) {
+            throw new \Exception("Required parameters: trans_id, gas_price, gas_limit");
         }
 
         $requestData = array(
-            "request_id" => $params["request_id"],
-            "gas_price" => $params["gas_price"]
+            "trans_id" => $params["trans_id"],
+            "gas_price" => $params["gas_price"],
+            "gas_limit" => $params["gas_limit"]
         );
-
-        if (!empty($params["gas_limit"])) {
-            $requestData["gas_limit"] = $params["gas_limit"];
-        }
 
         $response = $this->post("/api/mpc/web3/pending", $requestData);
         return $this->validateResponse($response);

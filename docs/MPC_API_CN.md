@@ -373,8 +373,9 @@ $result = $web3Api->createWeb3Trans(array(
 
 ```php
 $result = $web3Api->accelerationWeb3Trans(array(
-    'request_id' => 'web3_001',    // 必需：原始请求 ID
-    'gas_price' => '50'            // 必需：新的 gas 价格（Gwei）
+    'trans_id' => 12345,           // 必需：Web3 交易 ID
+    'gas_price' => '50',           // 必需：新的 gas 价格（Gwei）
+    'gas_limit' => '21000'         // 必需：gas 上限
 ));
 ```
 
